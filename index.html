@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CALCULATOR</title>
+</head>
+
+<body>
+    <style>
+        div {
+            margin: 10px 0;
+            gap: 10px;
+
+            display: flex;
+
+        }
+
+        .input {
+            border: 0;
+            padding: 10px;
+            font-size: 1.3em;
+            color: #ccc;
+            border: solid 1px #ccc;
+            margin: 0 0 20px;
+            -moz-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+            -webkit-box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+            box-shadow: inner 0 0 4px rgba(0, 0, 0, 0.2);
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+
+        input:focus {
+            border-radius: 3px;
+            outline: none !important;
+            border-color: blueviolet;
+            box-shadow: 0 0 10px blueviolet;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        button {
+            color: white;
+            background-color: blueviolet;
+            width: 30px;
+            border: none;
+            border-radius: 3px;
+            box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+            padding: 5px;
+        }
+        .result {
+            color: blueviolet;
+            font-weight: bold;
+        }
+    </style>
+
+
+
+    <input type='number' class="input1" value="0" />
+    <div>
+        <button class="summ">+</button>
+        <button class="subt">-</button>
+        <button class="multi">*</button>
+        <button class="divis">/</button>
+    </div>
+    <input type='number' class="input2" value="0" />
+    <div>Результат: <span class="result"></span></div>
+    
+
+
+    <script type="text/javascript">
+        const val1 = document.querySelector('.input1')
+        const val2 = document.querySelector('.input2')
+
+        const result = document.querySelector('.result')
+
+        const summ = document.querySelector('.summ')
+        summ.addEventListener('click', function () {
+            result.innerHTML = +val1.value + +val2.value
+        })
+        const subt = document.querySelector('.subt')
+        subt.addEventListener('click', function () {
+            result.innerHTML = +val1.value - +val2.value
+        })
+        const multi = document.querySelector('.multi')
+        multi.addEventListener('click', function () {
+            result.innerHTML = +val1.value * +val2.value
+        })
+        const divis = document.querySelector('.divis')
+        divis.addEventListener('click', function () {
+            if (+val2.value !== 0) {
+                result.innerHTML = +val1.value / +val2.value
+            } else {
+                result.innerHTML = 'НА НОЛЬ ДЕЛИТЬ НЕЛЬЗЯ!'
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>
